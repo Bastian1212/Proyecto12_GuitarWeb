@@ -1,16 +1,15 @@
-
 import Layout from "../components/Layout/Layout"
 
-const Nosotros = () => {
+const Tienda = () => {
     return(
         <Layout
-            pagina={"Nosotros"}
+            pagina={"Tienda Viertual"}
         
         >
-            <h1> Desde Nosotros </h1>
+            <h1>Desde Tienda </h1>
         </Layout>
     )
     
 }
 
-export default Nosotros
+export default Tienda
