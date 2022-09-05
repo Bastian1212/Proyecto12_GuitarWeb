@@ -1,18 +1,8 @@
-import react, {useEffect} from "react"
 
 import Layout from "../components/Layout/Layout"
 
-const Blog = () => {
-    useEffect(() => {
-       const  consultarApi = async () =>{
-            const url = 'http://localhost:1337/blogs/'
-            const respuesta  = await fetch(url)
-            const resultado = await respuesta.json()
-            console.log(resultado);
-
-        }
-        consultarApi();
-    }, [])
+const Blog = ({entradas}) => {
+    console.log(entradas)
     return(
         <Layout
             pagina={"Blog"}
@@ -22,6 +12,19 @@ const Blog = () => {
         </Layout>
     )
     
+}
+
+export async function getStaticProps(){
+    const url = 'http://localhost:1337/blogs/'
+    const respuesta  = await fetch(url)
+    const entradas = await respuesta.json()
+    //console.log(entradas)
+
+    return{
+        props:{
+            entradas
+        }
+    }
 }
 
 export default Blog
