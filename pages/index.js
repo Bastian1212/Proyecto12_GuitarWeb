@@ -1,6 +1,7 @@
 
 import Layout from '../components/Layout/Layout'
 import Listado from "../components/Listado"
+import Curso from '../components/Curso'
 export default function Home({guitarras,cursos}) {
   return (
     <Layout
@@ -12,6 +13,9 @@ export default function Home({guitarras,cursos}) {
             guitarras={guitarras}
           />
         </main>
+        <Curso
+          cursos={cursos}
+        />
     </Layout>
     
     
