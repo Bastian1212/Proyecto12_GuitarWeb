@@ -8,7 +8,9 @@ import styled from '../../styles/Entrada.module.css'
 const EntradaBlog = ({entrada}) => {
     const {contenido, imagen, published_at, titulo, } = entrada;
     return (
-        <Layout>
+        <Layout
+            pagina={titulo}
+        >
         <main className='contenedor'>
             <h1 className='heading'>{titulo}</h1>
             <article className={styled.entrada}>
