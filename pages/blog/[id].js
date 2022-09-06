@@ -2,19 +2,23 @@
 import Image from "next/image";
 import Layout from "../../components/Layout/Layout";
 import { formatearFecha } from "../../helpers";
+
+import styled from '../../styles/Entrada.module.css'
+
 const EntradaBlog = ({entrada}) => {
     const {contenido, imagen, published_at, titulo, } = entrada;
     return (
         <Layout>
         <main className='contenedor'>
             <h1 className='heading'>{titulo}</h1>
-            <article>
+            <article className={styled.entrada}>
                 <Image layout="responsive" width={800} height={600} src={imagen.url}  alt={`Imagen entrada ${titulo}`} />
+                <div className={styled.contenido}>
+                    <p className={styled.fecha}>{formatearFecha(published_at)}</p>
+                    <p className={styled.texto}>{contenido}</p>
+                </div>
             </article>
-            <div>
-                <p>{formatearFecha(published_at)}</p>
-                <p>{contenido}</p>
-            </div>
+      
 
         </main>
         </Layout>
