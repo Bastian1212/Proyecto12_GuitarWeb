@@ -8,7 +8,7 @@ const Entrada = ({entrada}) => {
     const {titulo,resumen,imagen, published_at ,id } = entrada;
   return (
     <article>
-        <Image  layout='responsive' width={800} height={600} src={imagen.url} alt={`imagrn blog ${titulo}`}/>
+        <Image  layout='responsive' width={800} height={600} src={imagen.url} alt={`imagen blog ${titulo}`}/>
         <div className={styled.contenido}>
             <h3>{titulo}</h3>
             <p className={styled.fecha}>{formatearFecha(published_at)}</p>
