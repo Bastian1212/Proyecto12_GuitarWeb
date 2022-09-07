@@ -21,12 +21,12 @@ function Header({guitarra}) {
                 </nav>
             </div>
             {guitarra && (
-                <div>
-                    <h1>Modelo {guitarra.nombre}</h1>
+                <div className={styled.modelo}>
+                    <h2>Modelo {guitarra.nombre}</h2>
                     <p>{guitarra.descripcion}</p>
-                    <p>${guitarra.precio}</p>
+                    <p className={styled.precio}>${guitarra.precio}</p>
                     <Link href={`guitarras/${guitarra.url}`}>
-                        <a>
+                        <a className={styled.enlace}>
                             Ver Producto
                         </a>
                     </Link>
