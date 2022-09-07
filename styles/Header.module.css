@@ -3,6 +3,7 @@
     background-size: cover;
     background-position: 50%;
     padding: 5rem  0 ;
+    position: relative;
 }
 
 .barra{
@@ -18,18 +19,19 @@
     }
 }
 
+.navegacion{
+    margin-top: 5rem;
+    display: flex;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
 @media (min-width:768px){
     .navegacion{
         margin-top: 0;
     }
 }
-
-.navegacion{
-    margin-top: 5rem;
-    display: flex;
-    gap: 2rem;
-}
-
 .navegacion a {
     color: var(--blanco);
     text-decoration: none;
@@ -95,4 +97,16 @@
 .enlace:hover{
     background-color: var(--primary);
     color: var(--blanco);
+}
+
+.guitar{
+    display: none;
+}
+@media(min-width:992px){
+    .guitar{
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -8px;
+    }
 }
