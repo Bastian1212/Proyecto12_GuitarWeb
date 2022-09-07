@@ -1,15 +1,17 @@
 import React from 'react'
 
 const Curso = (cursos) => {
-    const {titulo,contenido,imagen} = cursos;
-    console.log(cursos)
+    const {titulo,contenido,imagen} = cursos.cursos;
+    
     return (
         <section>
             <div  className='contenedor'>
                 <div>
-                    <h1>hola</h1>
-                    <h1>{cursos.titulo}</h1>
+                    
+                    <h2>{titulo}</h2>
                     <p>{contenido}</p>
+
+                    <a href='#'>Mas Información</a>
                 </div>
             </div>
         </section>
