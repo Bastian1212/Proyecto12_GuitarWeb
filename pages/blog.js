@@ -1,7 +1,7 @@
 
 import Layout from "../components/Layout/Layout"
 import Entrada from "../components/Entrada"
-
+import ListadoBlog from "../components/ListadoBlog"
 import styled from '../styles/Blog.module.css'
 
 
@@ -13,15 +13,10 @@ const Blog = ({entradas}) => {
         
         >
             <main className="contenedor">
-                <h2 className="heading">Blog</h2>
-                <div className={styled.blog}>
-                    {entradas.map(entrada => (
-                        <Entrada
-                            key={entrada.id}
-                            entrada={entrada}
-                        />
-                    ))}
-                </div>
+                <ListadoBlog
+                    entradas={entradas}
+                />
+                
             </main>
         </Layout>
     )
@@ -29,7 +24,7 @@ const Blog = ({entradas}) => {
 }
 
 export async function getStaticProps(){
-    const url = 'http://localhost:1337/blogs?_sort=created_at:desc'
+    const url = `${process.env.API_URL}/blogs?_sort=created_at:desc`
     const respuesta  = await fetch(url)
     const entradas = await respuesta.json()
     //console.log(entradas)
