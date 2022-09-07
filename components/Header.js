@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styled from '../styles/Header.module.css'
-function Header() {
+function Header({guitarra}) {
   return (
     <header className={styled.header}>
         <div className='contenedor'>
@@ -20,6 +20,19 @@ function Header() {
                     <Link href={"tienda"}>Tienda</Link>
                 </nav>
             </div>
+            {guitarra && (
+                <div>
+                    <h1>Modelo {guitarra.nombre}</h1>
+                    <p>{guitarra.descripcion}</p>
+                    <p>${guitarra.precio}</p>
+                    <Link href={`guitarras/${guitarra.url}`}>
+                        <a>
+                            Ver Producto
+                        </a>
+                    </Link>
+                </div>
+
+            )}
         </div>
     </header>
   )
