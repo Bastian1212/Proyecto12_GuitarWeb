@@ -1,17 +1,33 @@
 import { useState } from "react";
-
+import Image from "next/image";
 import Layout from "../components/Layout/Layout" 
 import styled from '../styles/Carrito.module.css'
 const Carrito = ({carrito}) => {
-    const [Productos, setProductos] = useState([]);
+    console.log(carrito);
     return (
         <Layout
             pagina={"carrito de Compras"}
         >
-            <main className={`${styled.contenido} contenedor`}>
+            <main>
                 <h1 className="heading">Carrito</h1>
                 <div>2</div>
-                <div>1</div>
+                <div className={styled.carrito}>
+                    {carrito.length === 0 
+                    ? "carrito Vacío " 
+                    : (carrito.map(producto => (
+                        <div key={producto.id} className={styled.pro} >
+                                <div>
+                                    <Image layout="responsive" width={250} height={489} src={producto.imagen} alt={producto.nombre} />
+                                </div>
+                                <div>
+                                    <p className={styled.nombre}>{producto.nombre}</p>
+                                    <p className={styled.cantidad}>Cantidad: {producto.cantidad}</p>
+                                    <p className={styled.precio}>${producto.precio}</p>
+                                </div>
+                        </div>              
+                    )))
+                    }
+                </div>
             </main>
         </Layout>   
     );
