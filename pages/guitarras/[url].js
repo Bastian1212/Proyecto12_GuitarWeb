@@ -1,12 +1,15 @@
-import {useState} from "react";
+import {useState, } from "react";
 import Image from "next/image";
 import Layout from "../../components/Layout/Layout";
 
 import styled from '../../styles/Guitarra.module.css'
 
 const Producto = ({guitarra, agregarCarrito}) => {
-    const {cantidad, setCantidad} = useState(1)
+    const [cantidad, setCantidad] = useState(1)
     const {descripcion, imagen, nombre, precio,id}  = guitarra[0]
+
+    
+
     const handleSubmit = e => {
         e.preventDefault();
         // Agregar al carrito 
@@ -39,7 +42,7 @@ const Producto = ({guitarra, agregarCarrito}) => {
                         <label>Cantidad :</label>
                         <select 
                             value={cantidad}
-                            onChange={(e) => setCantidad(parseInt(e.target.value))}                        >
+                            onChange={e => setCantidad(parseInt(e.target.value))}                        >
                             <option value={""}>-- Seleccione --</option>
                             <option value={"1"}>1</option>
                             <option value={"2"}>2</option>
