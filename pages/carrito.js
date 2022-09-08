@@ -17,12 +17,15 @@ const Carrito = ({carrito}) => {
                     : (carrito.map(producto => (
                         <div key={producto.id} className={styled.pro} >
                                 <div>
-                                    <Image layout="responsive" width={250} height={489} src={producto.imagen} alt={producto.nombre} />
+                                    <Image layout="responsive" width={250} height={500} src={producto.imagen} alt={producto.nombre} />
                                 </div>
                                 <div>
                                     <p className={styled.nombre}>{producto.nombre}</p>
                                     <p className={styled.cantidad}>Cantidad: {producto.cantidad}</p>
-                                    <p className={styled.precio}>${producto.precio}</p>
+                                    <p className={styled.precio}> <span> ${producto.precio}</span></p>
+                                    <p className={styled.subtotal}>
+                                        Subtotal: $<span>{producto.precio * producto.cantidad}</span>
+                                    </p>
                                 </div>
                         </div>              
                     )))
