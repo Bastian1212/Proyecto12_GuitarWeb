@@ -2,7 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Layout from "../components/Layout/Layout" 
 import styled from '../styles/Carrito.module.css'
-const Carrito = ({carrito}) => {
+const Carrito = ({carrito, actualizarCantidad}) => {
     console.log(carrito);
     return (
         <Layout
@@ -21,7 +21,25 @@ const Carrito = ({carrito}) => {
                                 </div>
                                 <div>
                                     <p className={styled.nombre}>{producto.nombre}</p>
-                                    <p className={styled.cantidad}>Cantidad: {producto.cantidad}</p>
+                                    <div className={styled.cantidad}>
+                                        <p>Cantidad:</p> 
+                                        <select 
+                                            value={producto.cantidad}
+                                            onChange={e => actualizarCantidad({
+                                                cantidad: e.target.value,
+                                                id: producto.id
+                                            })}
+                                        >
+                                            <option value={"1"}>1</option>
+                                            <option value={"2"}>2</option>
+                                            <option value={"3"}>3</option>
+                                            <option value={"4"}>4</option>
+                                            <option value={"5"}>5</option>
+                                            <option value={"6"}>6</option>
+                                            <option value={"7"}>7</option>
+                                        </select>
+                                    </div>
+                                    
                                     <p className={styled.precio}> <span> ${producto.precio}</span></p>
                                     <p className={styled.subtotal}>
                                         Subtotal: $<span>{producto.precio * producto.cantidad}</span>

@@ -27,15 +27,22 @@ function MyApp({ Component, pageProps }) {
     }else{
       setCarrito([...carrito, producto]);
 
-    }
+    }    
+  }
 
-
-
-    
+  const actualizarCantidad = producto => {
+    const carritoActualiado = carrito.map(articulo => {
+      if(articulo.id ===  producto.id){
+        articulo.cantidad = producto.cantidad;
+      }
+      return articulo;
+    });
+    setCarrito(carritoActualiado);
   }
   return <Component {...pageProps} 
     carrito={carrito}
     agregarCarrito={agregarCarrito}
+    actualizarCantidad={actualizarCantidad}
   
   />
 }
