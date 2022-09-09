@@ -2,7 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Layout from "../components/Layout/Layout" 
 import styled from '../styles/Carrito.module.css'
-const Carrito = ({carrito, actualizarCantidad}) => {
+const Carrito = ({carrito, actualizarCantidad, eliminarProducto}) => {
     console.log(carrito);
     return (
         <Layout
@@ -45,6 +45,11 @@ const Carrito = ({carrito, actualizarCantidad}) => {
                                         Subtotal: $<span>{producto.precio * producto.cantidad}</span>
                                     </p>
                                 </div>
+                                <button
+                                    type="button"
+                                    className={styled.eliminar}
+                                    onClick={() => eliminarProducto(producto.id)}
+                                >X</button>
                         </div>              
                     )))
                     }

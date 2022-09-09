@@ -75,3 +75,17 @@
 .subtotal span{
     font-size: 2.4rem;
 }
+
+.eliminar{
+    all: unset;
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+    font-weight: bold;
+
+}
+
+.eliminar:hover{
+    cursor: pointer;
+    
+}
